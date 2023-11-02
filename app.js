@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
 import { createConnection } from './src/shared/db/connection.js';
+import registerRoutes from './src/modules/Authentication/register/routes/register-routes.js';
+
 
 const app = express();
 dotenv.config();
@@ -12,9 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+app.use('/',registerRoutes);
+// app.get('/', (req, res) => {
+//     res.send('Hello, World!');
+// });
 
 // Start server
 const PORT = process.env.PORT || 1234;
