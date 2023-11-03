@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-const { validationResult } = 'express-jwt';
+//const { validationResult } = require(expressJwt);
 import expressJwt from 'express-jwt';
 import { STATUS_CODES } from '../../../../shared/utils/app-constants.js';
 import { registerService } from '../services/register-services.js';

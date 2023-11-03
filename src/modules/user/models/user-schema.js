@@ -62,8 +62,13 @@ UserSchema.pre('save', async function save(next) {
     }
 });
 
-UserSchema.methods.validatePassword = async function validatePassword(data) {
-    return bcrypt.compare(data, this.password);
+UserSchema.methods = {
+    authenticate : async function authenticate(password){
+        return this.validatePassword(password) === this.password;
+    },
+    validatePassword : async function validatePassword(data) {
+        return await bcrypt.compare(data, this.password);
+}
 };
 
 const UserModel = mongoose.model(schemaName, UserSchema);
