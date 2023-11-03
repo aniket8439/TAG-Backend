@@ -39,6 +39,45 @@ const loginController = {
                 error: "Internal Server Error",
             });
         }
+    },
+
+    //LOGOUT CONTROLLER
+
+    async logout(request, response) {
+        await response.clearCookie("token");
+        response.json({
+            message: "User LogOut successfully.."
+        });
+
+    },
+
+
+    //protected routes
+      async isLogIn(){
+        return expressJwt({
+            secret: process.env.SECRET,
+            userProperty: "auth"
+        });
+      } ,
+
+//custom middlewares
+       async isAuthenticated(request, response, next){
+         let checker = await request.profile && request.auth && request.profile._id == request.auth._id;
+        if (!checker) {
+            return response.status(403).json({
+                error: "ACCESS DENIED"
+            });
+        }
+        next();
+    },
+
+    async isAdmin(request, response, next) {
+        if (request.profile.isGuide === true) {
+            return response.status(403).json({
+                error: "You are not ADMIN, Access denied"
+            });
+        }
+        next();
     }
 }
 

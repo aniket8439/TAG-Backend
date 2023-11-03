@@ -12,7 +12,8 @@ export const AppConstants = {
     ROUTES: {
         USER: {
             REGISTER: '/register',
-            LOGIN: '/login'
+            LOGIN: '/login',
+            LOGOUT: '/logout'
         }
     }
 }

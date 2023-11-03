@@ -6,5 +6,6 @@ import loginController from '../controllers/login-controller.js';
 const loginRoutes = express();
 
 loginRoutes.post(USER_ROUTES.LOGIN, loginController.login);
+loginRoutes.get(USER_ROUTES.LOGOUT, loginController.logout);
 
 export default loginRoutes;
