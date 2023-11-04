@@ -13,7 +13,9 @@ export const AppConstants = {
         USER: {
             REGISTER: '/register',
             LOGIN: '/login',
-            LOGOUT: '/logout'
+            LOGOUT: '/logout',
+            VIEW_PROFILE: '/view-profile',
+            UPDATE_USER: '/update-user'
         }
     }
 }

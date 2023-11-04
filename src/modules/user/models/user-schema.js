@@ -73,4 +73,3 @@ UserSchema.methods = {
 
 const UserModel = mongoose.model(schemaName, UserSchema);
 export default UserModel;
-
