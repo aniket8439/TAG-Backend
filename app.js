@@ -5,6 +5,9 @@ import chalk from 'chalk';
 import { createConnection } from './src/shared/db/connection.js';
 import registerRoutes from './src/modules/Authentication/register/routes/register-routes.js';
 import loginRoutes from './src/modules/Authentication/login/routes/login-routes.js';
+import postRoutes from './src/modules/Post/routes/post-routes.js';
+// import likeRoutes from './src/modules/Likes/routes/like-routes.js';
+// import commentRoutes from './src/modules/comments/routes/comment-routes.js';
 
 
 const app = express();
@@ -17,6 +20,9 @@ app.use(express.json());
 // Routes
 app.use('/',registerRoutes);
 app.use('/',loginRoutes);
+app.use('/',postRoutes);
+// app.use('/',likeRoutes);
+// app.use('/',commentRoutes);
 // app.get('/', (req, res) => {
 //     res.send('Hello, World!');
 // });
