@@ -40,10 +40,10 @@ const UserSchema = new Schema({
         maxlength: 25,
         minlength: 8
     },
-    isGuide: {
-        type: mongoose.SchemaTypes.Boolean,
-        default: false
-    },
+    // isGuide: {
+    //     type: mongoose.SchemaTypes.Boolean,
+    //     default: false
+    // },
     instagram: {
         type: mongoose.SchemaTypes.String
     },
